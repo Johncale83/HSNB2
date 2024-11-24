@@ -95,6 +95,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <meta charset="UTF-8">
     <title>Cotizar - Ferretería</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="cotizar-styles.css" rel="stylesheet">
 </head>
 <body>
 <div class="container mt-4">
@@ -125,8 +126,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                         </div>
                         <div class="col-md-4">
                             <input type="number" name="cantidades[]" class="form-control" 
-                                   value="<?php echo $producto['cantidad']; ?>"
-                                   placeholder="Cantidad" min="1" required>
+                                value="<?php echo $producto['cantidad']; ?>"
+                                placeholder="Cantidad" min="1" required>
                         </div>
                         <div class="col-md-2">
                             <button type="button" class="btn btn-danger" onclick="eliminarProducto(this)">
@@ -155,7 +156,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     </div>
                     <div class="col-md-4">
                         <input type="number" name="cantidades[]" class="form-control" 
-                               placeholder="Cantidad" min="1" required>
+                            placeholder="Cantidad" min="1" required>
                     </div>
                     <div class="col-md-2">
                         <button type="button" class="btn btn-danger" onclick="eliminarProducto(this)">
@@ -171,6 +172,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             Agregar otro producto
         </button>
         <button type="submit" class="btn btn-primary">Generar Cotización</button>
+
+        <a href="index.php" class="btn-return">
+            <i class="fas fa-home"></i> Volver a la Página Principal
+        </a>
+
     </form>
 </div>
 

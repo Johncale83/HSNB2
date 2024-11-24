@@ -15,6 +15,7 @@ require_once 'config.php';
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 </head>
 <body>
+
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
         <a class="navbar-brand" href="index.php">Hardware Store Nuts and Bolds</a>
@@ -258,6 +259,53 @@ require_once 'config.php';
             </div>
         </div>
     </main>
+
+    <aside>
+        <!-- Customer Opinions Section -->
+        <div class="aside-section">
+            <h3>Opiniones de Clientes</h3>
+            <div class="customer-review">
+                <p>"Excelente servicio y productos de alta calidad. Muy recomendado!"</p>
+                <small>- María García</small>
+            </div>
+            <div class="customer-review">
+                <p>"Los mejores precios en herramientas profesionales."</p>
+                <small>- Juan Pérez</small>
+            </div>
+        </div>
+
+        <!-- Promotions Section -->
+        <div class="aside-section">
+            <h3>Promociones</h3>
+            <div class="promotion-card">
+                <h4>¡Oferta Especial!</h4>
+                <p>20% de descuento en herramientas eléctricas</p>
+                <small>Válido hasta: 31/12/2024</small>
+            </div>
+            <div class="promotion-card">
+                <h4>2x1</h4>
+                <p>En pinturas anticorrosivas</p>
+                <small>Válido hasta agotar stock</small>
+            </div>
+        </div>
+
+        <!-- News Section -->
+        <div class="aside-section">
+            <h3>Noticias</h3>
+            <div class="news-item">
+                <p>Nuevos productos de seguridad industrial disponibles</p>
+                <small>15/11/2024</small>
+            </div>
+            <div class="news-item">
+                <p>Próximo taller gratuito de bricolaje</p>
+                <small>10/11/2024</small>
+            </div>
+            <div class="news-item">
+                <p>Horario especial en días festivos</p>
+                <small>05/11/2024</small>
+            </div>
+        </div>
+    </aside>
     
         <div>
             <footer class="footer">

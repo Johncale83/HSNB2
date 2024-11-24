@@ -1,53 +1,145 @@
-/* Variables globales */
-:root {
-    --primary-color: #2c3e50;
-    --secondary-color: #e74c3c;
-    --accent-color: #3498db;
-    --background-color: #f5f6fa;
-    --text-color: #2c3e50;
-    --footer-color: #34495e;
-}
-
-/* Estilos generales */
-body {
-    font-family: 'Arial', sans-serif;
-    background-color: var(--background-color);
-    color: var(--text-color);
+/* Previous styles remain the same */
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
-.container {
-    max-width: 1200px;
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    background-color: #f5f5f5;
+}
+
+/* Updated Navbar Brand styles */
+.navbar-brand {
+    font-size: 2.5rem !important; /* Increased from default */
+    font-weight: 700 !important;
+    color: #ffd700 !important; /* Added golden color */
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 0.5rem 1rem !important;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    transition: all 0.3s ease;
+}
+
+.navbar-brand:hover {
+    transform: scale(1.05);
+    color: #fff !important;
+}
+
+/* Navigation styles */
+nav {
+    background-color: #333;
+    padding: 1rem 0;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+nav ul li {
+    position: relative;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #ffd700;
+}
+
+/* Dropdown styles */
+.dropdown {
+    display: none;
+    position: absolute;
+    background-color: #444;
+    min-width: 160px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+nav ul li:hover .dropdown {
+    display: block;
+}
+
+.dropdown li {
+    padding: 0.5rem;
+}
+
+/* Main content layout */
+.page-container {
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    gap: 2rem;
+    max-width: 1400px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 2rem;
 }
 
-/* Navbar personalizado */
-.navbar {
+.main-content2 {
+    flex: 1;
+}
+
+/* Aside styles */
+aside {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
-.navbar-brand {
-    font-weight: bold;
-    font-size: 1.5rem;
+.aside-section {
+    margin-bottom: 2rem;
 }
 
-/* Estilos para el grid de productos */
+.aside-section h3 {
+    color: #333;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #ffd700;
+}
+
+.customer-review {
+    background: #f9f9f9;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 4px;
+}
+
+.promotion-card {
+    background: #fff4e6;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 4px;
+    border-left: 4px solid #ffd700;
+}
+
+.news-item {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #eee;
+}
+
+/* Product grid styles */
 .products-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     gap: 2rem;
-    padding: 2rem 0;
 }
 
-/* Tarjetas de producto */
 .product-card {
     background: white;
-    border-radius: 10px;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease;
+    border-radius: 8px;
     overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
 }
 
 .product-card:hover {
@@ -56,138 +148,94 @@ body {
 
 .product-image {
     position: relative;
-    height: 200px;
-    overflow: hidden;
+    padding-top: 75%;
 }
 
 .product-image img {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.3s ease;
 }
 
-.product-card:hover .product-image img {
-    transform: scale(1.05);
-}
-
-/* Overlay para botón de cotizar */
 .product-overlay {
     position: absolute;
-    bottom: -50px;
+    top: 0;
     left: 0;
-    right: 0;
-    background: rgba(0,0,0,0.7);
-    padding: 1rem;
-    transition: bottom 0.3s ease;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s;
 }
 
 .product-card:hover .product-overlay {
-    bottom: 0;
+    opacity: 1;
 }
 
-/* Botón de cotizar */
-.add-to-cart {
-    width: 100%;
-    padding: 0.8rem;
-    border: none;
-    background: var(--secondary-color);
-    color: white;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background 0.3s ease;
-    font-weight: bold;
-}
-
-.add-to-cart:hover {
-    background: #c0392b;
-}
-
-.add-to-cart i {
-    margin-right: 8px;
-}
-
-/* Información del producto */
 .product-info {
-    padding: 1.5rem;
+    padding: 1rem;
 }
 
 .product-info h3 {
-    margin: 0 0 0.5rem 0;
-    font-size: 1.2rem;
-    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+    color: #333;
 }
 
-.product-info .description {
+.price {
+    font-weight: bold;
+    color: #e67700;
+    font-size: 1.2rem;
+}
+
+.description {
     color: #666;
     font-size: 0.9rem;
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
 }
 
-.product-info .price {
-    color: var(--secondary-color);
-    font-size: 1.3rem;
-    font-weight: bold;
-    margin: 0;
+/* Button styles */
+.add-to-cart {
+    background: #ffd700;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: background-color 0.3s;
 }
 
-/* Títulos de sección */
-.section-title {
-    text-align: center;
-    color: var(--primary-color);
-    margin: 2rem 0;
-    font-size: 2rem;
-    position: relative;
-    padding-bottom: 1rem;
+.add-to-cart:hover {
+    background: #ffed4a;
 }
 
-.section-title::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100px;
-    height: 3px;
-    background: var(--secondary-color);
-}
-
-/* Footer personalizado */
+/* Footer styles */
 .footer {
-    background-color: var(--footer-color);
+    background: #333;
     color: white;
-    padding: 2rem 0;
     text-align: center;
-    margin-top: 3rem;
+    padding: 1rem;
+    margin-top: 2rem;
 }
 
-.footer p {
-    margin: 0.5rem 0;
-}
-
-/* Media queries para responsividad */
+/* Responsive design */
 @media (max-width: 768px) {
-    .products-grid {
-        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-        gap: 1.5rem;
-    }
-
-    .product-image {
-        height: 180px;
-    }
-
-    .section-title {
-        font-size: 1.5rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .products-grid {
+    .page-container {
         grid-template-columns: 1fr;
-        gap: 1rem;
     }
-
-    .container {
-        padding: 0 15px;
+    
+    .products-grid {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+    
+    .navbar-brand {
+        font-size: 1.8rem !important; /* Smaller size for mobile */
     }
 }
