@@ -13,6 +13,8 @@ require_once 'config.php';
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
 <body>
 
@@ -22,11 +24,13 @@ require_once 'config.php';
         <div class="collapse navbar-collapse">
             <ul class="navbar-nav ms-auto">
                 <?php if(isset($_SESSION['usuario_id'])): ?>
+                    <?php if(isset($_SESSION['usuario_nombre'])): ?>
+                        <li class="nav-item">
+                            <span class="nav-link text-white">Hola  <?php echo htmlspecialchars($_SESSION['usuario_nombre']); ?> Haz iniciado sesion</span>
+                        </li>
+                    <?php endif; ?>
                     <li class="nav-item">
                         <a class="nav-link" href="cotizar.php">Cotizar</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="perfil.php">Mi Perfil</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="logout.php">Cerrar Sesión</a>
@@ -307,12 +311,29 @@ require_once 'config.php';
         </div>
     </aside>
     
-        <div>
-            <footer class="footer">
-                <p>Desarrollo @JhonCalentura</p>
-                <p>Universidad Nacional Abierta y a Distancia UNAD</p>
-            </footer>
+    <div>
+    <footer class="footer">
+        <div class="footer-content">
+            <p>Desarrollo @JhonCalentura</p>
+            <p>Universidad Nacional Abierta y a Distancia UNAD</p>
+            
+            <div class="social-icons">
+                <a href="#" target="_blank" title="Facebook">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="#" target="_blank" title="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="#" target="_blank" title="WhatsApp">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+                <a href="#" target="_blank" title="LinkedIn">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+            </div>
         </div>
+    </footer>
+</div>
     
         </header>
     
@@ -348,7 +369,36 @@ document.querySelectorAll('.add-to-cart').forEach(button => {
         });
     });
 });
+
+
 </script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<button id="scrollToTopBtn" title="Scroll to Top">
+    <i class="fas fa-arrow-up"></i>
+</button>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+
+    // Show/hide scroll to top button
+    window.addEventListener('scroll', function() {
+        if (window.pageYOffset > 300) {
+            scrollToTopBtn.classList.add('show');
+        } else {
+            scrollToTopBtn.classList.remove('show');
+        }
+    });
+
+    // Smooth scroll to top when button is clicked
+    scrollToTopBtn.addEventListener('click', function() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+});
+</script>
 </body>
 </html>

@@ -221,8 +221,53 @@ aside {
     background: #333;
     color: white;
     text-align: center;
-    padding: 1rem;
+    padding: 5rem;
     margin-top: 2rem;
+}
+
+/* Social Media Icons Styles */
+.footer {
+    background-color: #343a40;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    }
+    .social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 15px;
+    }
+    .social-icons a {
+    color: white;
+    font-size: 24px;
+    transition: color 0.3s ease;
+    }
+    .social-icons a:hover {
+    color: #007bff; /* Bootstrap primary color */
+    }
+    .footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    }
+
+
+/* Scroll to Top Button Styles */
+#scrollToTopBtn {
+position: fixed;
+bottom: 20px;
+right: 20px;
+background-color: #007bff; / 
+}
+
+#scrollToTopBtn:hover {
+background-color: #0056b3;
+transform: translateY(-5px);
+}
+#scrollToTopBtn.show {
+opacity: 1;
+visibility: visible;
 }
 
 /* Responsive design */
@@ -237,5 +282,5 @@ aside {
     
     .navbar-brand {
         font-size: 1.8rem !important; /* Smaller size for mobile */
-    }
+    }   
 }
